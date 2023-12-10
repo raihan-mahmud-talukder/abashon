@@ -12,14 +12,22 @@ code {
     monospace;
 }
 
+main {
+  min-height: 100vh;
+}
+
 header {
   background: green;
-  color: white;
+  color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-transform: uppercase;
   padding: 0 2rem;
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 header ul {
@@ -40,4 +48,12 @@ header a {
 
 menu {
   padding: 0;
+}
+
+footer {
+  background: green;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin-top: auto;
 }

@@ -3,9 +3,9 @@ import { Header } from "./components/Header"
 
 export const App = () => {
   return (
-    <>
-    <Header />
-    <Footer />
-    </>
+    <main>
+      <Header />
+      <Footer />
+    </main>
   )
 }
