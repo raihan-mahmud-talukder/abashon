@@ -22,21 +22,21 @@ export const Rooms = () => {
 }
 
 const Room = ({ room }) => {
-    console.log(room)
     return (
         <div className="room">
             <h3>{room.name}</h3>
             <div className="info">
                 <img src={room.img} alt={room.name} />
                 <div className="details">
+                    <span><b>Capacity: </b>{room.capacity} Person</span><br />
                     <span><b>Room Category: </b>{room.category}</span><br />
                     <span><b>Room Area: </b>{room.size} sqft</span><br />
-                    <span><b>Capacity: </b>{room.capacity} Person</span><br />
                     <span><b>Air Conditioned: </b>{room.ac ? 'Yes' : 'No'}</span><br />
                     <span><b>Washroom: </b>{room.washroom ? 'Attached' : 'Shared'}</span><br />
-                    <span><b>Dinning: </b>{room.dinning ? 'Seperate' : 'Shared'}</span><br />
-                    <p><b>Type:</b> {room.type}</p>
-                    <p><b>Price:</b> BDT {room.price}</p>
+                    <span><b>Dining: </b>{room.dining ? 'Seperate' : 'Shared'}</span><br />
+                    <p>{room.type}</p>
+                    <p>BDT {room.price}</p>
+                    <button>Book Suit</button>
                 </div>
             </div>
         </div>

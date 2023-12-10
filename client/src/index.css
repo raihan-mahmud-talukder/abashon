@@ -52,6 +52,64 @@ menu {
   margin: 0;
 }
 
+.rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.room {
+  width: 40rem;
+  padding: 2rem 0;
+  margin: 1rem 0;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.room h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: green;
+  margin-top: 0;
+  letter-spacing: 0.25rem;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.info img {
+  width: 25rem;
+}
+
+p:nth-child(odd) {
+  text-transform: uppercase;
+  text-align: center;
+  color: green;
+  font-size: 1.25rem;
+  letter-spacing: 0.25rem;
+}
+
+p:nth-child(even) {
+  text-align: center;
+  font-weight: bold;
+}
+
+.details button {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.5rem;
+  background: green;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 footer {
   background: green;
   color: white;
