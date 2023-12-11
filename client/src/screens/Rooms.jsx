@@ -3,21 +3,62 @@ import axios from 'axios'
 
 export const Rooms = () => {
     const [rooms, setRooms] = useState([])
+    const [duplcate, setDuplicate] = useState([])
+    const [filter, setFilter] = useState('all')
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = (await axios.get('/api/rooms/getallrooms')).data
                 setRooms(data)
+                setDuplicate(data)
             } catch (error) { console.log(error) }
         }
         fetchData()
     }, [])
 
+    const filtered = event => {
+        setFilter(event)
+        if (event !== 'all') {
+            if (event === 'ac') {
+                const temp = duplcate.filter(room => room.ac)
+                setRooms(temp)
+            } else if (event === 'dining') {
+                const temp = duplcate.filter(room => room.dining)
+                setRooms(temp)
+            } else if (event === 'washroom') {
+                const temp = duplcate.filter(room => room.washroom)
+                setRooms(temp)
+            } else {
+                const temp = duplcate.filter(room => room.type === event)
+                setRooms(temp)
+            }
+        } else { setRooms(duplcate) }
+    }
     return (
-        <div className="rooms">
-            {rooms.map(room => { return <Room room={room} key={room._id} /> })}
-        </div>
+        <>
+            <div className="filter">
+                <span>Filter:</span>
+                <select
+                    value={filter}
+                    onChange={event => filtered(event.target.value)}
+                >
+                    <option value="all">All</option>
+                    <option value="economy">Economy</option>
+                    <option value="family">Family</option>
+                    <option value="premium">Premium</option>
+                    <option value="luxury">Luxury</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="ac">AC</option>
+                    <option value="washroom">Washroom</option>
+                    <option value="dining">Dining</option>
+                </select>
+            </div>
+            <div className="rooms">
+                <h4>{rooms.length} rooms are available</h4>
+                {rooms.map(room => { return <Room room={room} key={room._id} /> })}
+            </div>
+        </>
     )
 }
 
