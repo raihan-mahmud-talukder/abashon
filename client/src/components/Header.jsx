@@ -6,6 +6,9 @@ import { Login } from "../screens/Login"
 import { Register } from "../screens/Register"
 
 export const Header = () => {
+    const user = JSON.parse(localStorage.getItem('currentUser'))
+    const logout = () => { localStorage.removeItem('currentUser') }
+
     return (
         <>
             <header>
@@ -15,8 +18,13 @@ export const Header = () => {
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/about'>About</NavLink></li>
                         <li><NavLink to='/rooms'>Rooms</NavLink></li>
-                        <li><NavLink to='/login'>Login</NavLink></li>
-                        <li><NavLink to='/register'>Register</NavLink></li>
+                        {!user ? (
+                            <>
+                                <li><NavLink to='/login'>Login</NavLink></li>
+                                <li><NavLink to='/register'>Register</NavLink></li>
+                            </>
+                        ) : <li><NavLink to='/login' onClick={logout}>Logout</NavLink></li>
+                        }
                     </ul>
                 </menu>
             </header>
