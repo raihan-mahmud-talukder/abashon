@@ -1,23 +1,37 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Register = () => {
   const [name, setName] = useState('')
+  const [mobile, setMobile] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const navigate = useNavigate()
 
-  const register = async () => {
+  const modal = () => {
+    const w = window.open('', '', 'width=100,height=100')
+    w.document.write('Successfully Registered!')
+    w.focus()
+    setTimeout(() => { w.close(); }, 3000)
+  }
+
+  const register = async event => {
+    event.preventDefault()
     if (password === confirmPassword) {
       const user = {
-        name, email, password, confirmPassword
+        name, mobile, email, password, confirmPassword
       }
       try {
         const result = (await axios.post('/api/users/register', user)).data
         setName('')
+        setMobile('')
         setEmail('')
         setPassword('')
         setConfirmPassword('')
+        modal()
+        navigate('/login')
       } catch (error) { console.log(error) }
     } else { alert('Passwords not matched!') }
   }
@@ -33,6 +47,15 @@ export const Register = () => {
         id="name"
         value={name}
         onChange={event => setName(event.target.value)}
+      /><br />
+      <label htmlFor="mobile">Mobile: </label>
+      <input
+        type="text"
+        placeholder="mobile"
+        required={true}
+        id="mobile"
+        value={mobile}
+        onChange={event => setMobile(event.target.value)}
       /><br />
       <label htmlFor='email'>Email:</label>
       <input
