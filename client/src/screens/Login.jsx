@@ -1,16 +1,27 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
-  const login = async () => {
+  const modal = () => {
+    const w = window.open('', '', 'width=100,height=100')
+    w.document.write('Successfully Logged in!')
+    w.focus()
+    setTimeout(() => { w.close(); }, 3000)
+  }
+
+  const login = async event => {
+    event.preventDefault()
     const user = { email, password }
     try {
       const result = (await axios.post('/api/users/login', user)).data
       localStorage.setItem('currentUser', JSON.stringify(result))
-      window.location.href = '/room'
+      modal()
+      navigate('/rooms')
     } catch (error) { console.log(error) }
   }
 
