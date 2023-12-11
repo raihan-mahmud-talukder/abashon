@@ -15,15 +15,15 @@ export const Header = () => {
                 <h1>Abashon</h1>
                 <menu>
                     <ul>
-                        <li><NavLink to='/'>Home</NavLink></li>
-                        <li><NavLink to='/about'>About</NavLink></li>
-                        <li><NavLink to='/rooms'>Rooms</NavLink></li>
+                        <li><NavLink to='/' className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink></li>
+                        <li><NavLink to='/about' className={({ isActive }) => (isActive ? "active" : "")}>About</NavLink></li>
+                        <li><NavLink to='/rooms' className={({ isActive }) => (isActive ? "active" : "")}>Rooms</NavLink></li>
                         {!user ? (
                             <>
-                                <li><NavLink to='/login'>Login</NavLink></li>
-                                <li><NavLink to='/register'>Register</NavLink></li>
+                                <li><NavLink to='/login' className={({ isActive }) => (isActive ? "active" : "")}>Login</NavLink></li>
+                                <li><NavLink to='/register' className={({ isActive }) => (isActive ? "active" : "")}>Register</NavLink></li>
                             </>
-                        ) : <li><NavLink to='/login' onClick={logout}>Logout</NavLink></li>
+                        ) : <li><NavLink to='/login' onClick={logout} >Logout</NavLink></li>
                         }
                     </ul>
                 </menu>
