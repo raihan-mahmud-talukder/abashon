@@ -36,29 +36,22 @@ export const Rooms = () => {
         } else { setRooms(duplcate) }
     }
     return (
-        <>
-            <div className="filter">
-                <span>Filter:</span>
-                <select
-                    value={filter}
-                    onChange={event => filtered(event.target.value)}
-                >
-                    <option value="all">All</option>
-                    <option value="economy">Economy</option>
-                    <option value="family">Family</option>
-                    <option value="premium">Premium</option>
-                    <option value="luxury">Luxury</option>
-                    <option value="corporate">Corporate</option>
-                    <option value="ac">AC</option>
-                    <option value="washroom">Washroom</option>
-                    <option value="dining">Dining</option>
-                </select>
-            </div>
-            <div className="rooms">
-                <h4>{rooms.length} rooms are available</h4>
-                {rooms.map(room => { return <Room room={room} key={room._id} /> })}
-            </div>
-        </>
+        <div className="rooms">
+            <span>Filter:</span>
+            <select value={filter} onChange={event => filtered(event.target.value)}>
+                <option value="all">All</option>
+                <option value="economy">Economy</option>
+                <option value="family">Family</option>
+                <option value="premium">Premium</option>
+                <option value="luxury">Luxury</option>
+                <option value="corporate">Corporate</option>
+                <option value="ac">A/C</option>
+                <option value="washroom">Washroom</option>
+                <option value="dining">Dining</option>
+            </select>
+            <h4>{rooms.length} rooms are available</h4>
+            {rooms.map(room => { return <Room room={room} key={room._id} /> })}
+        </div>
     )
 }
 
