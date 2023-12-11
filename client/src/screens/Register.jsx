@@ -61,11 +61,9 @@ export const Register = () => {
         value={confirmPassword}
         onChange={event => setConfirmPassword(event.target.value)}
       /><br />
-      <div>
-        <button type="reset" value='reset'>RESET</button>
-        <button type="submit" value='submit'>REGISTER</button>
-        <span>Alredy registered? <a href='/login'>LOGIN</a></span>
-      </div>
+      <button type="reset" value='reset'>RESET</button>
+      <button type="submit" value='submit'>REGISTER</button>
+      <span>Alredy registered? <a href='/login'>LOGIN</a></span>
     </form>
   )
 }
