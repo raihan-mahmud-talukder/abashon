@@ -13,6 +13,8 @@ router.post('/bookroom', async (req, res) => {
                 userId: user._id })
         const booking = await newBooking.save()
         const temp = await Room.findOne({ _id: room._id })
+        temp.availability = false
+        await temp.save()
         res.send('Room is booked')
     } catch (error) { console.log(error) }
 })

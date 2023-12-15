@@ -10,7 +10,8 @@
         "washroom": false,
         "dining": false,
         "img": "https://dusairesorts.com/images/gallery/stay/30.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 2,
@@ -23,7 +24,8 @@
         "washroom": false,
         "dining": false,
         "img": "https://dusairesorts.com/images/gallery/stay/29.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 3,
@@ -36,7 +38,8 @@
         "washroom": false,
         "dining": false,
         "img": "https://dusairesorts.com/images/stay/hotel/classic/classic-room-2.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 4,
@@ -49,7 +52,8 @@
         "washroom": true,
         "dining": false,
         "img": "https://dusairesorts.com/images/stay/villa/deluxe/2.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 5,
@@ -62,7 +66,8 @@
         "washroom": true,
         "dining": false,
         "img": "https://dusairesorts.com/images/stay/villa/suite/5.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 6,
@@ -75,7 +80,8 @@
         "washroom": true,
         "dining": false,
         "img": "https://dusairesorts.com/images/stay/hotel/superior/1.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 7,
@@ -88,7 +94,8 @@
         "washroom": true,
         "dining": false,
         "img": "https://dusairesorts.com/images/stay/hotel/classic/classic-room-1.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 8,
@@ -101,7 +108,8 @@
         "washroom": true,
         "dining": true,
         "img": "https://dusairesorts.com/images/stay/hotel/premium/1.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 9,
@@ -114,7 +122,8 @@
         "washroom": true,
         "dining": false,
         "img": "https://dusairesorts.com/images/gallery/stay/5.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 10,
@@ -127,7 +136,8 @@
         "washroom": true,
         "dining": true,
         "img": "https://dusairesorts.com/images/gallery/stay/14.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 11,
@@ -140,7 +150,8 @@
         "washroom": true,
         "dining": true,
         "img": "https://dusairesorts.com/images/stay/villa/president/3.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     },
     {
         "category": 12,
@@ -153,6 +164,7 @@
         "washroom": true,
         "dining": true,
         "img": "https://dusairesorts.com/images/gallery/stay/15.jpg",
-        "facilities": []
+        "facilities": [],
+        "availability": true
     }
 ]
