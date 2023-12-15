@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
+import { useNavigate } from "react-router-dom"
 
 export const Rooms = () => {
     const [rooms, setRooms] = useState([])
     const [duplcate, setDuplicate] = useState([])
     const [filter, setFilter] = useState('all')
     document.title = 'ROOMS'
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,6 +37,7 @@ export const Rooms = () => {
             }
         } else { setRooms(duplcate) }
     }
+
     return (
         <div className="rooms">
             <span>Filter:</span>
@@ -58,6 +59,23 @@ export const Rooms = () => {
 }
 
 const Room = ({ room }) => {
+    const [user, setUser] = useState(null)
+    const navigate = useNavigate()
+    
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('currentUser'))
+        setUser(user)
+    })
+
+    const privateRoute = () => {
+        console.log(room._id)
+        if (user) {
+            alert('Confirmed')
+        } else {
+            alert('login first!')
+            navigate('/login')
+        }
+    }
     return (
         <div className="room">
             <h3>{room.name}</h3>
@@ -72,7 +90,7 @@ const Room = ({ room }) => {
                     <span><b>Dining: </b>{room.dining ? 'Seperate' : 'Shared'}</span><br />
                     <p>{room.type}</p>
                     <p>BDT {room.price}</p>
-                    <button>Book Suit</button>
+                    <button onClick={privateRoute}>Book Suit</button>
                 </div>
             </div>
         </div>
