@@ -1,18 +1,19 @@
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
 import { Home } from "../screens/Home"
 import { About } from "../screens/About"
 import { Rooms } from "../screens/Rooms"
 import { Login } from "../screens/Login"
 import { Register } from "../screens/Register"
-import { useEffect, useState } from "react"
+import { Booking } from "../screens/Booking"
 
 export const Header = () => {
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
     const navigate = useNavigate() // needed for dynamic navbar
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('currentUser'))
-        setUser(user)
-    })
+    const user = JSON.parse(localStorage.getItem('currentUser'))
+    // useEffect(() => {
+        // setUser(user)
+    // })
     const logout = () => localStorage.removeItem('currentUser')
 
     return (
@@ -41,6 +42,7 @@ export const Header = () => {
                 <Route path="/rooms" element={<Rooms />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/book/:roomid" element={<Booking />} />
             </Routes>
         </>
     )

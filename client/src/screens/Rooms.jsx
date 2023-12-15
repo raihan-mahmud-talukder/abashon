@@ -59,18 +59,14 @@ export const Rooms = () => {
 }
 
 const Room = ({ room }) => {
-    const [user, setUser] = useState(null)
     const navigate = useNavigate()
-    
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('currentUser'))
-        setUser(user)
-    })
+    const user = JSON.parse(localStorage.getItem('currentUser'))
 
     const privateRoute = () => {
         console.log(room._id)
         if (user) {
             alert('Confirmed')
+            navigate(`/book/${room._id}`)
         } else {
             alert('login first!')
             navigate('/login')
