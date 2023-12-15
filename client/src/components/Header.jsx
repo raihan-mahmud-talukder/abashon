@@ -30,9 +30,7 @@ export const Header = () => {
                                     <li><NavLink to='/login' className={({ isActive }) => (isActive ? "active" : "")}>Login</NavLink></li>
                                     <li><NavLink to='/register' className={({ isActive }) => (isActive ? "active" : "")}>Register</NavLink></li>
                                 </>
-                            )
-                            :
-                            <li><NavLink to='/login' onClick={logout} >Logout</NavLink></li>
+                            ) : <li><NavLink to='/login' onClick={logout} >Logout</NavLink></li>
                         }
                     </ul>
                 </menu>

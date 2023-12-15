@@ -5,6 +5,8 @@ export const Rooms = () => {
     const [rooms, setRooms] = useState([])
     const [duplcate, setDuplicate] = useState([])
     const [filter, setFilter] = useState('all')
+    document.title = 'ROOMS'
+
 
     useEffect(() => {
         const fetchData = async () => {

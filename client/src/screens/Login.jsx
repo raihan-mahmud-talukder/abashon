@@ -6,6 +6,7 @@ export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+  document.title = 'LOGIN'
 
   const modal = () => {
     const w = window.open('', '', 'width=100,height=100')

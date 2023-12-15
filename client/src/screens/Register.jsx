@@ -9,6 +9,8 @@ export const Register = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const navigate = useNavigate()
+  document.title = 'REGISTER'
+
 
   const modal = () => {
     const w = window.open('', '', 'width=100,height=100')
