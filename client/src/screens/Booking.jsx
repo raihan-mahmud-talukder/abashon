@@ -14,7 +14,6 @@ export const Booking = () => {
             try {
                 const data = (await axios.post('/api/rooms/getroombyid', { roomid })).data
                 setRoom(data)
-                console.log(data)
             } catch (error) { console.log(error) }
         }
         fetchData()

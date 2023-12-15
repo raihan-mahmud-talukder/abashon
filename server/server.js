@@ -14,9 +14,11 @@ app.use(cors())
 
 const roomsRoute = require('./routes/room')
 const usersRoute = require('./routes/user')
+const bookingsRoute = require('./routes/booking')
 
 app.use('/api/rooms', roomsRoute)
 app.use('/api/users', usersRoute)
+app.use('/api/bookings', bookingsRoute)
 
 const port = process.env.PORT || 5000
 
