@@ -20,9 +20,14 @@ export const Booking = () => {
         fetchData()
     }, [])
 
-    const confirmed = () => {
-        alert('Booking is confirmed!')
-        navigate('/rooms')
+    const confirmed = async () => {
+        const booking = { room, user }
+        try {
+            const result = await axios.post('/api/bookings/bookroom', booking)
+            alert('Booking is confirmed!')
+            navigate('/rooms')
+        }
+        catch (error) { console.log(error) }
     }
 
     return (
