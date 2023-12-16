@@ -2,6 +2,9 @@ export const Home = () => {
   document.title = 'ABASHON'
 
   return (
-    <div>Home</div>
+    <>
+      <h1 className="home">ABASHON</h1>
+      <p>Your trusted staying solution</p>
+    </>
   )
 }
