@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 export const Rooms = () => {
     const [rooms, setRooms] = useState([])
-    const [duplcate, setDuplicate] = useState([])
+    const [duplicate, setDuplicate] = useState([])
     const [filter, setFilter] = useState('all')
     document.title = 'ROOMS'
 
@@ -23,20 +23,22 @@ export const Rooms = () => {
         setFilter(event)
         if (event !== 'all') {
             if (event === 'ac') {
-                const temp = duplcate.filter(room => room.ac)
+                const temp = duplicate.filter(room => room.ac)
                 setRooms(temp)
             } else if (event === 'dining') {
-                const temp = duplcate.filter(room => room.dining)
+                const temp = duplicate.filter(room => room.dining)
                 setRooms(temp)
             } else if (event === 'washroom') {
-                const temp = duplcate.filter(room => room.washroom)
+                const temp = duplicate.filter(room => room.washroom)
                 setRooms(temp)
             } else {
-                const temp = duplcate.filter(room => room.type === event)
+                const temp = duplicate.filter(room => room.type === event)
                 setRooms(temp)
             }
-        } else { setRooms(duplcate) }
+        } else { setRooms(duplicate) }
     }
+
+    const available = duplicate.filter(room => room.availability)
 
     return (
         <div className="rooms">
@@ -52,7 +54,7 @@ export const Rooms = () => {
                 <option value="washroom">Washroom</option>
                 <option value="dining">Dining</option>
             </select>
-            <h4>{rooms.length} rooms are available</h4>
+            <h4>{available.length} of {rooms.length} rooms are available</h4>
             {rooms.map(room => { return <Room room={room} key={room._id} /> })}
         </div>
     )
@@ -63,10 +65,10 @@ const Room = ({ room }) => {
     const user = JSON.parse(localStorage.getItem('currentUser'))
 
     const privateRoute = () => {
-        console.log(room._id)
         if (user) {
-            alert('Confirmed')
-            navigate(`/book/${room._id}`)
+            if (room.availability) {
+                navigate(`/book/${room._id}`)
+            } else alert('Room is already booked!')
         } else {
             alert('login first!')
             navigate('/login')
